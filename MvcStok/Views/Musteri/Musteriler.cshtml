@@ -1,12 +1,18 @@
 ﻿@using MvcStok.Models.Entity;
-@using PagedList;
-@using PagedList.Mvc;
-@model PagedList.IPagedList<TblMusteriler>
+
+@model List<TblMusteriler>
 @{
     ViewBag.Title = "Musteriler";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@using (Html.BeginForm("Musteriler", "Musteri", FormMethod.Get))
+{
+    <p>
+        Aranacak Müşteri Adı:@Html.TextBox("p")
+        <input type="submit"  value="Ara" />
 
+    </p>
+}
 <table class=" table table-bordered">
     <tr>
 
@@ -15,7 +21,7 @@
         <th>Müsteri Soyadı</th>
         <th>Sil</th>
         <th>Güncelle</th>
-       
+
 
     </tr>
     <tbody>
@@ -24,7 +30,7 @@
             <tr>
                 <td>@musteris.MusteriID</td>
                 <td>@musteris.MusteriAD</td>
-                <td>@musteris.MusteriSoyad</td>               
+                <td>@musteris.MusteriSoyad</td>
                 <td>@Html.ActionLink("Sil", "SIl", new { id = musteris.MusteriID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize Emin Misiniz')" })</td>
                 <td><a href="/Musteri/MusteriGuncelle/@musteris.MusteriID" class="btn btn-info ">Güncelle</a></td>
 
@@ -34,7 +40,7 @@
         }
     </tbody>
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Musteriler", new { sayfa }));
+
 <a href="/Musteri/YeniMusteri" class="btn btn-primary">Yeni Müşteri Ekle</a>
 
 

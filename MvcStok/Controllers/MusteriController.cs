@@ -14,12 +14,17 @@ namespace MvcStok.Controllers
         // GET: Musteri
         MvcDbStokEntities db = new MvcDbStokEntities();
        
-        public ActionResult Musteriler(  int sayfa=1)
+        public ActionResult Musteriler(  string p)
         {
             
             //var degerler = db.TblMusteriler.ToList();
-            var degerler = db.TblMusteriler.ToList().ToPagedList(sayfa,3);
-            return View(degerler);
+            var degerler = from d in db.TblMusteriler select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                degerler = degerler.Where(m => m.MusteriAD.Contains(p));
+            }
+            return View(degerler.ToList());
+
         }
         [HttpGet]
         public ActionResult YeniMusteri()

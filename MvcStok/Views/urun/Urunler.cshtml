@@ -7,18 +7,21 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table table-bordered">
-    <tr>
-        <th>Ürün Id</th>
-        <th>Ürün Adı</th>
-        <th>Markası</th>
-        <th>Kategori</th>
-        <th>Fiyat</th>
-        <th>Stok</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
+<table id="tbl1 " class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ürün Id</th>
+            <th>Ürün Adı</th>
+            <th>Markası</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
 
-    </tr>
+        </tr>
+    </thead>
+
     <tbody>
         @foreach (var urun in Model)
         {
@@ -36,6 +39,11 @@
         }
     </tbody>
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa=> Url.Action("Urunler", new {sayfa}))
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Urunler", new { sayfa }))
 <a href="/urun/Yeniurun" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+
+
+
+
 
