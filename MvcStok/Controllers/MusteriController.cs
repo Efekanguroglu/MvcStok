@@ -23,9 +23,17 @@ namespace MvcStok.Controllers
         [HttpPost]
         public ActionResult YeniMusteri(TblMusteriler m1)
         {
-            db.TblMusteriler.Add(m1);
-             db.SaveChanges();
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View("YeniMusteri");
+            }
+            else
+            {
+
+                db.TblMusteriler.Add(m1);
+                db.SaveChanges();
+                return View();
+            }
         }
         public ActionResult Sil(int id)
         {
