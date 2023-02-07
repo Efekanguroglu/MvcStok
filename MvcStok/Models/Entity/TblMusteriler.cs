@@ -22,7 +22,7 @@ namespace MvcStok.Models.Entity
         }
     
         public int MusteriID { get; set; }
-        [Required(ErrorMessage ="Bu Alan? Bo? BIRAKMAYINIZ")]
+        [Required(ErrorMessage ="Bu Alanl Bos BIRAKMAYINIZ")]
         [StringLength(50,ErrorMessage ="En fazla 50 Karakter Girebilirsiniz")]
         public string MusteriAD { get; set; }
         public string MusteriSoyad { get; set; }

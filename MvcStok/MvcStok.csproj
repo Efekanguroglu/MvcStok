@@ -230,6 +230,7 @@
     <Content Include="Views\Kategori\Sil.cshtml" />
     <Content Include="Views\Kategori\KategoriGuncelle.cshtml" />
     <Content Include="Views\Musteri\MusteriGuncelle.cshtml" />
+    <Content Include="Views\urun\UrunGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

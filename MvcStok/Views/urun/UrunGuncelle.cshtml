@@ -1,0 +1,34 @@
+﻿@model MvcStok.Models.Entity.Tblurunler
+@{
+    ViewBag.Title = "UrunGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>UrunGuncelle</h2>
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UrunID)
+        @Html.TextBoxFor(m => m.UrunID, new { @style = "width:250px", @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunAdı)
+        @Html.TextBoxFor(m => m.UrunAdı, new { @style = "width:250px", @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Marka)
+        @Html.TextBoxFor(m => m.Marka, new { @style = "width:250px", @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UrunKategori)
+        @Html.DropDownListFor(m=>m.TblKategoriler.KategoriID,(List<SelectListItem>)ViewBag.dgr)
+       @* @Html.TextBoxFor(m => m.UrunKategori, new { @style = "width:250px", @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(m => m.Fiyat)
+        @Html.TextBoxFor(m => m.Fiyat, new { @style = "width:250px", @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Stok)
+        @Html.TextBoxFor(m => m.Stok, new { @style = "width:250px", @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Ürün Güncelle</button>
+    </div>
+}
+
