@@ -43,6 +43,14 @@ namespace MvcStok.Controllers
             
             return View("KategoriGuncelle",ktgr);
         }
+
+        public ActionResult Guncelle(TblKategoriler p1)
+        {
+            var ktg = db.TblKategoriler.Find(p1.KategoriID);
+            ktg.KatergoriAD = p1.KatergoriAD;
+            db.SaveChanges();
+            return RedirectToAction("KategoriListesi");
+        }
     }
    
 }

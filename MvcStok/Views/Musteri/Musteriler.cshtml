@@ -1,7 +1,7 @@
 ﻿@using MvcStok.Models.Entity;
 @model List<TblMusteriler>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Musteriler";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
@@ -23,7 +23,7 @@
                 <td>@musteris.MusteriAD</td>
                 <td>@musteris.MusteriSoyad</td>
                 <td><a href="/Musteri/Sil/@musteris.MusteriID" class="btn btn-danger ">Sil</a></td>
-                <td><a href="/Musteri/Güncelle/@musteris.MusteriAD" class="btn btn-info ">Güncelle</a></td>
+                <td><a href="/Musteri/MusteriGuncelle/@musteris.MusteriID" class="btn btn-info ">Güncelle</a></td>
 
 
             </tr>
