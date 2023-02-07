@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.Mvc;
 using MvcStok.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 namespace MvcStok.Controllers
 {
     public class MusteriController : Controller
     {
         // GET: Musteri
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult Musteriler()
+       
+        public ActionResult Musteriler(  int sayfa=1)
         {
-            var degerler = db.TblMusteriler.ToList();
+            
+            //var degerler = db.TblMusteriler.ToList();
+            var degerler = db.TblMusteriler.ToList().ToPagedList(sayfa,3);
             return View(degerler);
         }
         [HttpGet]

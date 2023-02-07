@@ -1,5 +1,7 @@
 ﻿@using MvcStok.Models.Entity;
-@model List<TblMusteriler>
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TblMusteriler>
 @{
     ViewBag.Title = "Musteriler";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -13,6 +15,7 @@
         <th>Müsteri Soyadı</th>
         <th>Sil</th>
         <th>Güncelle</th>
+       
 
     </tr>
     <tbody>
@@ -21,8 +24,8 @@
             <tr>
                 <td>@musteris.MusteriID</td>
                 <td>@musteris.MusteriAD</td>
-                <td>@musteris.MusteriSoyad</td>
-                <td><a href="/Musteri/Sil/@musteris.MusteriID" class="btn btn-danger ">Sil</a></td>
+                <td>@musteris.MusteriSoyad</td>               
+                <td>@Html.ActionLink("Sil", "SIl", new { id = musteris.MusteriID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize Emin Misiniz')" })</td>
                 <td><a href="/Musteri/MusteriGuncelle/@musteris.MusteriID" class="btn btn-info ">Güncelle</a></td>
 
 
@@ -31,6 +34,7 @@
         }
     </tbody>
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Musteriler", new { sayfa }));
 <a href="/Musteri/YeniMusteri" class="btn btn-primary">Yeni Müşteri Ekle</a>
 
 

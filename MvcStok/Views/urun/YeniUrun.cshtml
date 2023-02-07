@@ -8,11 +8,11 @@
 <form class="form-group" method="post">
     <div>
         <label>Ürün Adı</label>
-        <input style="width:250px" type="Text" class="form-control " name="UrunAdı" />
+        <input style="width:250px" type="Text" class="form-control " name="UrunAdı" required="" maxlength="50" />
     </div>
     <div>
         <label>marka</label>
-        <input style="width:250px" type="Text" class="form-control " name="Marka" />
+        <input style="width:250px" type="Text" class="form-control " name="Marka"required="" maxlength="50"/>
     </div>
     <div>
         <label >Kategori</label>
@@ -20,15 +20,20 @@
     </div>
     <div>
         <label>Fiyat</label>
-        <input style="width:250px" type="Text" class="form-control " name="Fiyat" />
+        <input style="width:250px" type="Text" class="form-control " name="Fiyat" required="" maxlength="50"/>
     </div>
     <div>
     <label>Stok</label>
-    <input style="width:250px" type="Text" class="form-control " name="Stok" />
+    <input style="width:250px" type="Text" class="form-control " name="Stok" required="" maxlength="50"/>
 </div>
     <div style="margin-top:15px">
-        <button class="btn btn-primary">Ürünü Ekle</button>
+        <button class="btn btn-primary"id="btn1">Ürünü Ekle</button>
     </div>
+    <script>
+        $("#btn1").click(function () {
+            alert("Ürün ekleme yapıldı!");
+        });
+</script>
 
 </form>
 
